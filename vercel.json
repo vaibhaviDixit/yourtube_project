@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "/client/**",
+      "src": "/client",
       "use": "@vercel/static-build"
     },
     {
@@ -12,7 +12,7 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/server/$1" },
-    { "src": "/(.*)", "dest": "/client/$1" }
+    { "src": "/(.*)", "dest": "/client/$1" ,"headers": { "Cache-Control": "s-maxage=0" }}
   ]
 }
 
